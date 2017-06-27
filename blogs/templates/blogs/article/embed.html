@@ -1,0 +1,6 @@
+{% load fullurl %}
+<a href="{% fullurl view.handlers.detail id=instance.id %}"
+  class="widget-embed" data-gh-widget="{{ instance.id }}" target="_blank">
+  {{ instance.subject}}
+</a>
+<script src="{% fullurl view.handlers.detail id=instance.id tpl='widget' xt='js' %}"></script>
