@@ -4,3 +4,6 @@ pytz
 
 # Management Commands
 django-click
+
+# URL
+django-fullurl

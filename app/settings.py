@@ -120,6 +120,7 @@ LANGUAGE_CODE = 'ja'
 TIME_ZONE = 'Asia/Tokyo'
 INSTALLED_APPS += [
     'theme',
+    'fullurl',
     'blogs',
     'accounts',
 ]
