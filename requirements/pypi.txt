@@ -1,0 +1,6 @@
+# Framework
+django
+pytz
+
+# Management Commands
+django-click
