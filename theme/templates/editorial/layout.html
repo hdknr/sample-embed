@@ -1,0 +1,319 @@
+{% load i18n static %}{# copied from index.html #}
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>{% trans 'AFIR' %}</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<!--[if lte IE 8]><script src="{% static 'main/assets/js/ie/html5shiv.js' %}"></script><![endif]-->
+		<link rel="stylesheet" href="{% static 'main/assets/css/main.css' %}" />
+		<!--[if lte IE 9]><link rel="stylesheet" href="{% static 'main/assets/css/ie9.css' %}" /><![endif]-->
+		<!--[if lte IE 8]><link rel="stylesheet" href="{% static 'main/assets/css/ie8.css' %}" /><![endif]-->
+		<link href="{% static 'bootstrap/dist/css/bootstrap.min.css' %}" rel="stylesheet"> 		{# hdknr #}
+		<link href="{% static 'font-awesome/css/font-awesome.min.css' %}" rel="stylesheet">		{# hdknr #}
+		<link href="{% static 'datetimepicker/jquery.datetimepicker.css' %}" rel="stylesheet"> {# hdknr #}
+		{% block head %}{% endblock %}
+	</head>
+	<body>
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Main -->
+					<div id="main">
+						<div class="inner">
+
+							<!-- Header -->
+								<header id="header">
+									<a href="#" class="logo"><strong>{% trans 'Afir' %}</strong></a>
+
+									<ul class="icons">
+									<!-- もしかしてショートカットメニューアイコンをおくかも
+										<li><a href="#" class="icon fa-twitter"><span class="label">Twitter</span></a></li>
+										<li><a href="#" class="icon fa-facebook"><span class="label">Facebook</span></a></li>
+										<li><a href="#" class="icon fa-snapchat-ghost"><span class="label">Snapchat</span></a></li>
+										<li><a href="#" class="icon fa-instagram"><span class="label">Instagram</span></a></li>
+									--->
+									{% if request.user.is_staff %}
+										<li><a href="#" class="icon fa-question-circle" data-toggle="tooltip" title="{% trans 'Help' %}"></a>
+											</li>
+									{% endif %}
+										<li><a href="#" class="">{{ request.user }}</li>
+										<li><a href="{% url 'accounts_logout' %}?next=/" class="icon fa-sign-out" data-toggle="tooltip" title="{% trans 'Sign Out' %}">
+											<span class="label">{% trans 'Sign Out' %}</span></a></li>
+									</ul>
+								</header>
+
+								{% block breadcrumb %}{#  ----- パンくず ---------- #}
+								<header>
+									<ol class="breadcrumb">
+										{% block breadcrumb_list %}
+											<li><a href="#">{% trans 'Portal Home' %}</i></a></li>
+										{% endblock %}
+									</ol>
+								</header>
+								{% endblock %}
+
+
+							{% block banner %}
+							<!-- Banner -->
+							<!-- バナーはないのでは
+								<section id="banner">
+									<div class="content">
+										<header>
+											<h1>Hi, I’m Editorial<br />
+											by HTML5 UP</h1>
+											<p>A free and fully responsive site template</p>
+										</header>
+										<p>Aenean ornare velit lacus, ac varius enim ullamcorper eu. Proin aliquam facilisis ante interdum congue. Integer mollis, nisl amet convallis, porttitor magna ullamcorper, amet egestas mauris. Ut magna finibus nisi nec lacinia. Nam maximus erat id euismod egestas. Pellentesque sapien ac quam. Lorem ipsum dolor sit nullam.</p>
+										<ul class="actions">
+											<li><a href="#" class="button big">Learn More</a></li>
+										</ul>
+									</div>
+									<span class="image object">
+										<img src="{% static 'backoffice/images/pic10.jpg' %}" alt="" />
+									</span>
+								</section>
+							-->
+							{% endblock %}
+
+							<!-- Section -->
+							{% block content %}
+								<section>
+									{% block section_header %}
+									<header class="major">
+										{% block section_title %}
+										<h2>{% trans 'Section Title' %}</h2>
+										{% endblock %}
+									</header>
+									{% endblock %}
+
+									{% block section_content %}
+
+									<table class="table">  {# ダミーコンテンツ #}
+									{% for i in "x"|rjust:"100" %}
+									   <tr>
+											 <th>{{ forloop.counter }}アイテム</th>
+											 <td class="col-md-8">データ</td>
+										 </tr>
+									{% endfor %}
+								  </table>
+
+									{% endblock %}
+								</section>
+							{% endblock %}
+							<!-- Section -->
+							<!--- サンプル
+								<section>
+									<header class="major">
+										<h2>Erat lacinia</h2>
+									</header>
+
+									<div class="features">
+										<article>
+											<span class="icon fa-diamond"></span>
+											<div class="content">
+												<h3>Portitor ullamcorper</h3>
+												<p>Aenean ornare velit lacus, ac varius enim lorem ullamcorper dolore. Proin aliquam facilisis ante interdum. Sed nulla amet lorem feugiat tempus aliquam.</p>
+											</div>
+										</article>
+										<article>
+											<span class="icon fa-paper-plane"></span>
+											<div class="content">
+												<h3>Sapien veroeros</h3>
+												<p>Aenean ornare velit lacus, ac varius enim lorem ullamcorper dolore. Proin aliquam facilisis ante interdum. Sed nulla amet lorem feugiat tempus aliquam.</p>
+											</div>
+										</article>
+										<article>
+											<span class="icon fa-rocket"></span>
+											<div class="content">
+												<h3>Quam lorem ipsum</h3>
+												<p>Aenean ornare velit lacus, ac varius enim lorem ullamcorper dolore. Proin aliquam facilisis ante interdum. Sed nulla amet lorem feugiat tempus aliquam.</p>
+											</div>
+										</article>
+										<article>
+											<span class="icon fa-signal"></span>
+											<div class="content">
+												<h3>Sed magna finibus</h3>
+												<p>Aenean ornare velit lacus, ac varius enim lorem ullamcorper dolore. Proin aliquam facilisis ante interdum. Sed nulla amet lorem feugiat tempus aliquam.</p>
+											</div>
+										</article>
+									</div>
+								</section>
+							-->
+
+							<!-- Section -->
+							<!--
+								<section>
+									<header class="major">
+										<h2>Ipsum sed dolor</h2>
+									</header>
+									<div class="posts">
+										<article>
+											<a href="#" class="image"><img src="images/pic01.jpg" alt="" /></a>
+											<h3>Interdum aenean</h3>
+											<p>Aenean ornare velit lacus, ac varius enim lorem ullamcorper dolore. Proin aliquam facilisis ante interdum. Sed nulla amet lorem feugiat tempus aliquam.</p>
+											<ul class="actions">
+												<li><a href="#" class="button">More</a></li>
+											</ul>
+										</article>
+										<article>
+											<a href="#" class="image"><img src="images/pic02.jpg" alt="" /></a>
+											<h3>Nulla amet dolore</h3>
+											<p>Aenean ornare velit lacus, ac varius enim lorem ullamcorper dolore. Proin aliquam facilisis ante interdum. Sed nulla amet lorem feugiat tempus aliquam.</p>
+											<ul class="actions">
+												<li><a href="#" class="button">More</a></li>
+											</ul>
+										</article>
+										<article>
+											<a href="#" class="image"><img src="images/pic03.jpg" alt="" /></a>
+											<h3>Tempus ullamcorper</h3>
+											<p>Aenean ornare velit lacus, ac varius enim lorem ullamcorper dolore. Proin aliquam facilisis ante interdum. Sed nulla amet lorem feugiat tempus aliquam.</p>
+											<ul class="actions">
+												<li><a href="#" class="button">More</a></li>
+											</ul>
+										</article>
+										<article>
+											<a href="#" class="image"><img src="images/pic04.jpg" alt="" /></a>
+											<h3>Sed etiam facilis</h3>
+											<p>Aenean ornare velit lacus, ac varius enim lorem ullamcorper dolore. Proin aliquam facilisis ante interdum. Sed nulla amet lorem feugiat tempus aliquam.</p>
+											<ul class="actions">
+												<li><a href="#" class="button">More</a></li>
+											</ul>
+										</article>
+										<article>
+											<a href="#" class="image"><img src="images/pic05.jpg" alt="" /></a>
+											<h3>Feugiat lorem aenean</h3>
+											<p>Aenean ornare velit lacus, ac varius enim lorem ullamcorper dolore. Proin aliquam facilisis ante interdum. Sed nulla amet lorem feugiat tempus aliquam.</p>
+											<ul class="actions">
+												<li><a href="#" class="button">More</a></li>
+											</ul>
+										</article>
+										<article>
+											<a href="#" class="image"><img src="images/pic06.jpg" alt="" /></a>
+											<h3>Amet varius aliquam</h3>
+											<p>Aenean ornare velit lacus, ac varius enim lorem ullamcorper dolore. Proin aliquam facilisis ante interdum. Sed nulla amet lorem feugiat tempus aliquam.</p>
+											<ul class="actions">
+												<li><a href="#" class="button">More</a></li>
+											</ul>
+										</article>
+									</div>
+								</section>
+							-->
+						</div>
+					</div>
+
+				<!-- Sidebar -->
+					<div id="sidebar">
+						<div class="inner">
+
+							<!-- Search -->
+							<!-- 検索はない
+								<section id="search" class="alt">
+									<form method="post" action="#">
+										<input type="text" name="query" id="query" placeholder="Search" />
+									</form>
+								</section>
+							-->
+
+							<!-- Menu -->
+								<nav id="menu">
+									<header class="major">
+										<h2>{% trans 'Menu' %}</h2>
+									</header>
+									<ul>
+
+										<li>
+											<span class="opener">{% trans 'Boards' %}</span>
+											<ul>
+												<li><a href="#">{% trans 'Board Message' %}</a></li>
+											</ul>
+										</li>
+
+										<li>
+											<span class="opener">{% trans 'Tutorials' %}</span>
+											<ul>
+													<li><a href="#">{% trans 'Turoaila Document' %}</a></li>
+											</ul>
+										</li>
+
+										<li>
+											<span class="opener">{% trans 'Acounts' %}</span>
+											<ul>
+												<li><a href="#">{% trans 'Profile' %}</a></li>
+											</ul>
+										</li>
+
+									</ul>
+								</nav>
+
+							<!-- Section -->
+							<!--- 最近の記事など
+								<section>
+									<header class="major">
+										<h2>Ante interdum</h2>
+									</header>
+									<div class="mini-posts">
+										<article>
+											<a href="#" class="image"><img src="{% static 'backoffice/images/pic07.jpg' %}" alt="" /></a>
+											<p>Aenean ornare velit lacus, ac varius enim lorem ullamcorper dolore aliquam.</p>
+										</article>
+										<article>
+											<a href="#" class="image"><img src="{% static 'backoffice/images/pic08.jpg' %}" %}alt="" /></a>
+											<p>Aenean ornare velit lacus, ac varius enim lorem ullamcorper dolore aliquam.</p>
+										</article>
+										<article>
+											<a href="#" class="image"><img src="{% static 'backoffice/images/pic09.jpg' %}" alt="" /></a>
+											<p>Aenean ornare velit lacus, ac varius enim lorem ullamcorper dolore aliquam.</p>
+										</article>
+									</div>
+									<ul class="actions">
+										<li><a href="#" class="button">More</a></li>
+									</ul>
+								</section>
+							--->
+
+							<!-- Section -->
+								<section>
+									<header class="major">
+										<h2>{% trans 'About Afir' %}</h2>
+									</header>
+									<p>Afir is .... </p>
+									<ul class="contact">
+										<li class="fa-envelope-o"><a href="#">information@untitled.tld</a></li>
+										<li class="fa-phone">(000) 000-0000</li>
+										<li class="fa-home">1234 Somewhere Road #8254<br />
+										Nashville, TN 00000-0000</li>
+									</ul>
+								</section>
+
+							<!-- Footer -->
+								<footer id="footer">
+									<p class="copyright"> {% trans 'Copyright Information' %} </p>
+								</footer>
+
+						</div>
+					</div>
+
+			</div>
+
+		<!-- Scripts -->
+			{# <script src="{% static 'jquery/dist/jquery.min.js' %}"></script> #}		{# hdknr #}
+			{# <script src="{% static 'bootstrap/dist/js/bootstrap.min.js' %}"></script> #}	{# hdknr #}
+			<script src="{% static 'main/assets/js/skel.min.js' %}"></script>
+			<script src="{% static 'main/assets/js/util.js' %}"></script>
+			<!--[if lte IE 8]><script src="{% static 'main/assets/js/ie/respond.min.js' %}"></script><![endif]-->
+			<script src="{% static 'main/assets/js/main.js' %}"></script>
+			<script src="{% static 'moment/moment.js' %}"></script>
+			<script src="{% static 'moment/locale/ja.js' %}"></script>
+			<script src="{% static 'datetimepicker/build/jquery.datetimepicker.full.js' %}"></script>
+			<script type="text/javascript">
+			$(function () {
+					$.datetimepicker.setLocale('ja');
+					$('#sidebar').toggleClass('inactive');
+			});
+			</script>
+			{% block bottom %}
+			{% endblock %}
+	</body>
+</html>

@@ -115,8 +115,10 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 #####
+ALLOWED_HOSTS = ['develop.local', ]
 LANGUAGE_CODE = 'ja'
 TIME_ZONE = 'Asia/Tokyo'
 INSTALLED_APPS += [
+    'theme',
     'blogs',
 ]
