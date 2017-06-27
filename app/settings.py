@@ -121,4 +121,5 @@ TIME_ZONE = 'Asia/Tokyo'
 INSTALLED_APPS += [
     'theme',
     'blogs',
+    'accounts',
 ]

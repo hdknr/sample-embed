@@ -1,1 +1,9 @@
 {% extends 'base.html' %}
+
+{% block section_title %}
+<h2>{{ instance.subject }}</h2>
+{% endblock %}
+
+{% block section_content %}
+   {{ instance.text }}
+{% endblock %}
