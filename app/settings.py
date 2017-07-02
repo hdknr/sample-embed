@@ -120,7 +120,11 @@ LANGUAGE_CODE = 'ja'
 TIME_ZONE = 'Asia/Tokyo'
 INSTALLED_APPS += [
     'theme',
+    'django.contrib.humanize',
+    'django.contrib.sites',
     'fullurl',
     'blogs',
     'accounts',
+    'corekit',
 ]
+SITE_ID = 1

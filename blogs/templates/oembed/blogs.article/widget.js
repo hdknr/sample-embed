@@ -31,6 +31,6 @@
       }
     }
   }
-  req.open('GET', '{% fullurl view.handlers.detail id=instance.id tpl="widget" %}');
+  req.open('GET', '{% fullurl "corekit_oembed_widget" id=instance.id content_type="blogs.article" %}');
   req.send(null);
 })();

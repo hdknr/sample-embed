@@ -1,0 +1,12 @@
+{
+	"version": "1.0",
+	"type": "rich",
+	"provider_name": "TODO: Provider",
+	"provider_url": "TODO: Provider URL",
+	"width": 425,
+	"height": 344,
+	"title": "{{ instance.subject }}",
+	"author_name": "{{ instance.user }}",
+	"author_url": "TODO: Author URL",
+	"html": ""
+}

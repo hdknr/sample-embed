@@ -18,6 +18,7 @@ from django.contrib import admin
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
+    url(r'^oembed/', include('corekit.oembed.urls')),
     url(r'^accounts/', include('accounts.urls')),
     url(r'^blogs/', include('blogs.urls')),
 ]
