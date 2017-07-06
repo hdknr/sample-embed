@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% load fullurl %}
 
 {% block section_title %}
 <h2>{{ instance.subject }}</h2>
@@ -6,4 +7,10 @@
 
 {% block section_content %}
    {{ instance.text }}
+{% endblock %}
+
+
+{% block head %}
+<link rel="alternate" type="application/json+oembed"
+ href="{% fullurl 'corekit_oembed_api' content_type='blogs.article' id=instance.id %}" >
 {% endblock %}
